@@ -1,0 +1,95 @@
+@tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 24 9.8% 10%; /* Darker text for better contrast with orange */
+      --card: 0 0% 100%;
+      --card-foreground: 24 9.8% 10%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 24 9.8% 10%;
+      
+      /* Dark Orange Theme */
+      --primary: 24 95% 53%; /* Dark Orange */
+      --primary-foreground: 0 0% 100%; /* White text on orange */
+      
+      --secondary: 30 90% 95%; /* Light Orange / Peach for secondary elements */
+      --secondary-foreground: 24 9.8% 10%; /* Dark text on light orange */
+      
+      --muted: 30 90% 95%;
+      --muted-foreground: 24 5.4% 46.9%; /* Muted dark gray */
+      
+      --accent: 39 97% 51%; /* Brighter Orange / Gold for accents */
+      --accent-foreground: 24 9.8% 10%; /* Dark text on accent */
+      
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 100%;
+      
+      --border: 30 80% 85%; /* Light orange border */
+      --input: 30 80% 85%; /* Light orange input border */
+      --ring: 24 95% 53%; /* Ring color matching primary dark orange */
+      
+      --radius: 0.75rem;
+    }
+
+    .dark {
+      --background: 20 14.3% 4.1%; /* Very dark, slightly warm gray */
+      --foreground: 0 0% 98%; /* Almost white text */
+      --card: 24 9.8% 10%; /* Dark warm gray for cards */
+      --card-foreground: 0 0% 98%;
+      --popover: 20 14.3% 4.1%;
+      --popover-foreground: 0 0% 98%;
+
+      /* Dark Orange Theme - Dark Mode */
+      --primary: 24 85% 48%; /* Slightly desaturated Dark Orange for dark mode */
+      --primary-foreground: 0 0% 100%;
+      
+      --secondary: 24 9.8% 15%; /* Darker warm gray for secondary elements */
+      --secondary-foreground: 0 0% 98%;
+      
+      --muted: 24 9.8% 15%;
+      --muted-foreground: 0 0% 62.8%; /* Lighter muted gray for dark mode */
+      
+      --accent: 39 87% 46%; /* Slightly desaturated Brighter Orange for dark mode accents */
+      --accent-foreground: 0 0% 100%; /* White text on accent for dark mode */
+      
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      
+      --border: 24 9.8% 15%; /* Dark warm gray border */
+      --input: 24 9.8% 15%; /* Dark warm gray input border */
+      --ring: 24 85% 48%; /* Ring color matching primary dark orange for dark mode */
+    }
+
+    body {
+      @apply bg-background text-foreground;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glassmorphic {
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+    }
+
+    .dark .glassmorphic {
+      background: rgba(var(--primary), 0.1); /* Use primary color with alpha for dark mode glass */
+      border: 1px solid rgba(var(--primary-foreground), 0.1);
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--secondary));
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--primary));
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--accent));
+    }
