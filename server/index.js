@@ -14,14 +14,21 @@ app.use('/api', require('./routes/authr'));
 app.use('/api', require('./routes/authb'));
 app.use('/api', require('./routes/authnt'));
 
-mongoose.connect("mongodb://localhost:27017/tourbook", {
+require('dotenv').config(); // Load variables from .env
+
+const MONGO_URI = process.env.MONGO_URI;
+
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(() => {
-  console.log("MongoDB connected");
-}).catch(err => {
-  console.error("MongoDB connection error:", err);
+})
+.then(() => {
+  console.log("✅ MongoDB connected successfully");
+})
+.catch((err) => {
+  console.error("❌ MongoDB connection error:", err);
 });
+
 app.post("/register", (req, res) => {
   RegisterModel.create(req.body)
     .then(user => res.json(user))
