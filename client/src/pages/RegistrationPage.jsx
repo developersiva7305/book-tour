@@ -21,7 +21,7 @@ const RegistrationPage = () => {
   const [result, setResult] = React.useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/register', { fullName, email, password, confirmPassword, phone })
+    axios.post('https://book-tour-1.onrender.com/api/register', { fullName, email, password, confirmPassword, phone })
       .then(result => console.log(result))
       .catch(err => console.log(err))
 
