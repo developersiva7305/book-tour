@@ -37,7 +37,7 @@ const BookingPage = () => {
   const handleBooking = async () => {
       setLoading(true);
       try {
-        axios.post(`https://book-tour-1.onrender.com/api/booking/${placeId}`, {
+        axios.post(`http://localhost:3000/api/booking/${placeId}`, {
           userId: user.id,
           placeId:place.id,
           userName: e.target.userName.value,
