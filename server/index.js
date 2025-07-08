@@ -1,7 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
-
+require('dotenv').config();
 
 const RegisterModel = require("./RegisterModel");
 const BookingModel = require("./BookingModel");
@@ -14,7 +14,7 @@ app.use('/api', require('./routes/authr'));
 app.use('/api', require('./routes/authb'));
 app.use('/api', require('./routes/authnt'));
 
-require('dotenv').config(); // Load variables from .env
+// Load variables from .env
 
 const MONGO_URI = process.env.MONGO_URI;
 
